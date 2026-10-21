@@ -1,0 +1,25 @@
+digraph G {
+  graph [rankdir=BT, bgcolor="white", nodesep=0.55, ranksep=0.75, pad=0.3, fontname="Helvetica"];
+  node  [shape=plain, fontname="Helvetica", fontsize=11];
+  edge  [fontname="Helvetica", fontsize=10, color="#1F3864", penwidth=1.4];
+  Figura [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#FCE4D6"><B>Figura</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT"> </TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ area(): float<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Rectangulo [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#DCE6F5"><B>Rectangulo</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT"># _ancho: float<BR ALIGN="LEFT"/># _alto: float<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ set_ancho(v)<BR ALIGN="LEFT"/>+ set_alto(v)<BR ALIGN="LEFT"/>+ area(): float<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Cuadrado [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#F8CBAD"><B>Cuadrado</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT"> </TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ set_ancho(v)  «fuerza alto = v»<BR ALIGN="LEFT"/>+ set_alto(v)  «fuerza ancho = v»<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Rectangulo -> Figura [arrowhead=onormal, arrowsize=1.2];
+  Cuadrado -> Rectangulo [arrowhead=onormal, arrowsize=1.2, color="#C00000", label="  VIOLA LSP", fontcolor="#C00000"];
+}

@@ -1,0 +1,26 @@
+============================================================
+PLANILLA PERSONAL UNIVERSITARIO — UNAP PUNO
+============================================================
+Mamani Quispe, Juan Carlos → S/ 1680.00
+Quispe Torres, María Elena → S/ 1620.00
+Huanca Lazo, Pedro → S/ 3150.00
+Flores Ramos, Ana Lucía → S/ 3000.00
+------------------------------------------------------------
+TOTAL PLANILLA: S/ 9450.00
+
+Verificación LSP: OK — todos los objetos respetan el contrato base
+
+PRUEBA DE VALIDACIONES
+------------------------------------------------------------
+[OK] DNI con 7 dígitos
+     → ValueError: DNI inválido: '1234567' (debe tener 8 dígitos)
+[OK] Horas = 50 (máx. 40)
+     → ValueError: Horas fuera de rango: 50 (debe estar en 1..40)
+[OK] Categoría inexistente
+     → ValueError: Categoría inválida: 'Titular' (use: Auxiliar, Asociado, Principal)
+[OK] Salario base negativo
+     → ValueError: El salario base debe ser mayor que 0
+[OK] Investigador sin proyectos
+     → ValueError: Debe tener al menos 1 proyecto activo
+[OK] Instanciar clase abstracta
+     → TypeError: Can't instantiate abstract class PersonalUniversitario without an implementation for abstract method 'calcular_remuneracion'

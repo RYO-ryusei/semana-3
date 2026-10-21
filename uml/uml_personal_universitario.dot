@@ -1,0 +1,32 @@
+digraph G {
+  graph [rankdir=BT, bgcolor="white", nodesep=0.55, ranksep=0.75, pad=0.3, fontname="Helvetica"];
+  node  [shape=plain, fontname="Helvetica", fontsize=11];
+  edge  [fontname="Helvetica", fontsize=10, color="#1F3864", penwidth=1.4];
+  PersonalUniversitario [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#FCE4D6"><B><FONT POINT-SIZE="9">&laquo;abstract&raquo;</FONT><BR/><I>PersonalUniversitario</I></B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- __dni: str<BR ALIGN="LEFT"/># _nombres: str<BR ALIGN="LEFT"/># _apellidos: str<BR ALIGN="LEFT"/>+ TARIFA_HORA_BASE: float = 75.0<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ dni(): str<BR ALIGN="LEFT"/>+ nombre_completo(): str<BR ALIGN="LEFT"/>+ calcular_remuneracion(): float {abstract}<BR ALIGN="LEFT"/>+ __str__(): str<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Docente [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#DCE6F5"><B>Docente</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- _horas: int<BR ALIGN="LEFT"/>- _categoria: str<BR ALIGN="LEFT"/>+ FACTORES: dict<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ calcular_remuneracion(): float<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Administrativo [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#DCE6F5"><B>Administrativo</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- _salario_base: float<BR ALIGN="LEFT"/>- _bono: float<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ calcular_remuneracion(): float<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Investigador [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#DCE6F5"><B>Investigador</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- _proyectos: int<BR ALIGN="LEFT"/>+ REMUNERACION_POR_PROYECTO = 1500.0<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ calcular_remuneracion(): float<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Docente -> PersonalUniversitario [arrowhead=onormal, arrowsize=1.2];
+  Administrativo -> PersonalUniversitario [arrowhead=onormal, arrowsize=1.2];
+  Investigador -> PersonalUniversitario [arrowhead=onormal, arrowsize=1.2];
+}

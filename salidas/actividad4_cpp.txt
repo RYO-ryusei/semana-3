@@ -1,0 +1,22 @@
+============================================================
+PLANILLA PERSONAL UNIVERSITARIO — UNAP PUNO
+============================================================
+Mamani Quispe, Juan Carlos (DNI: 12345678) S/ 1680.00
+Quispe Torres, Maria Elena (DNI: 23456789) S/ 1620.00
+Huanca Lazo, Pedro (DNI: 34567890) S/ 3150.00
+Flores Ramos, Ana Lucia (DNI: 45678901) S/ 3000.00
+------------------------------------------------------------
+TOTAL: S/ 9450.00
+
+PRUEBA DE VALIDACIONES
+------------------------------------------------------------
+[OK] DNI con 7 digitos
+     -> invalid_argument: DNI invalido: '1234567' (debe tener 8 digitos)
+[OK] Horas = 50 (max. 40)
+     -> invalid_argument: Horas fuera de rango [1,40]
+[OK] Categoria inexistente
+     -> invalid_argument: Categoria invalida: Titular
+[OK] Salario base negativo
+     -> invalid_argument: Salario base debe ser positivo
+[OK] Investigador sin proyectos
+     -> invalid_argument: Debe tener al menos 1 proyecto activo

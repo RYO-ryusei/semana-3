@@ -1,0 +1,57 @@
+digraph G {
+  graph [rankdir=BT, bgcolor="white", nodesep=0.55, ranksep=0.75, pad=0.3, fontname="Helvetica"];
+  node  [shape=plain, fontname="Helvetica", fontsize=11];
+  edge  [fontname="Helvetica", fontsize=10, color="#1F3864", penwidth=1.4];
+  RecursoBibliografico [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#FCE4D6"><B><FONT POINT-SIZE="9">&laquo;abstract&raquo;</FONT><BR/><I>RecursoBibliografico</I></B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT"># _codigo: str<BR ALIGN="LEFT"/># _titulo: str<BR ALIGN="LEFT"/># _autor: str<BR ALIGN="LEFT"/># _anio: int<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ dias_prestamo(): int {abstract}<BR ALIGN="LEFT"/>+ calcular_multa(dias: int): float {abstract}<BR ALIGN="LEFT"/>+ tipo(): str<BR ALIGN="LEFT"/>+ descripcion(): str<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  LibroFisico [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#DCE6F5"><B>LibroFisico</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- _paginas: int<BR ALIGN="LEFT"/>- _ejemplares: int<BR ALIGN="LEFT"/>+ MULTA_DIARIA = 1.50<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ dias_prestamo(): int  «7»<BR ALIGN="LEFT"/>+ calcular_multa(d): float<BR ALIGN="LEFT"/>+ descripcion(): str<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  LibroDigital [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#DCE6F5"><B>LibroDigital</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- _formato: str<BR ALIGN="LEFT"/>- _tamano_mb: float<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ dias_prestamo(): int  «14»<BR ALIGN="LEFT"/>+ calcular_multa(d): float  «0»<BR ALIGN="LEFT"/>+ descripcion(): str<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Revista [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#DCE6F5"><B>Revista</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- _volumen: int<BR ALIGN="LEFT"/>- _numero: int<BR ALIGN="LEFT"/>+ MULTA_DIARIA = 2.00<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ dias_prestamo(): int  «3»<BR ALIGN="LEFT"/>+ calcular_multa(d): float<BR ALIGN="LEFT"/>+ descripcion(): str<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Biblioteca [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#E2EFDA"><B>Biblioteca</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">- nombre: str<BR ALIGN="LEFT"/>- _catalogo: list<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ agregar(r)<BR ALIGN="LEFT"/>+ catalogo(): list<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Prestamo [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#E2EFDA"><B>Prestamo</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ dias_retraso: int<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ multa(): float<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  Usuario [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#E2EFDA"><B>Usuario</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ codigo: str<BR ALIGN="LEFT"/>+ nombre: str<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT"> </TD></TR>
+    </TABLE>>];
+  LibroFisico -> RecursoBibliografico [arrowhead=onormal, arrowsize=1.2];
+  LibroDigital -> RecursoBibliografico [arrowhead=onormal, arrowsize=1.2];
+  Revista -> RecursoBibliografico [arrowhead=onormal, arrowsize=1.2];
+  Biblioteca -> RecursoBibliografico [arrowtail=diamond, arrowhead=none, dir=back, arrowsize=1.3, label="  catálogo", taillabel="1", headlabel="0..*", labeldistance=2.6, labelangle=40];
+  Prestamo -> RecursoBibliografico [arrowhead=vee, style=dashed, label="  recurso"];
+  Prestamo -> Usuario [arrowhead=vee, style=dashed, label="  usuario"];
+  {rank=same; Prestamo; RecursoBibliografico; Biblioteca}
+  Prestamo -> RecursoBibliografico -> Biblioteca [style=invis];
+  {rank=same; Usuario; LibroFisico; LibroDigital; Revista}
+  Usuario -> LibroFisico -> LibroDigital -> Revista [style=invis];
+}

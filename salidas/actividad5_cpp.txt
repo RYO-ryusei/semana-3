@@ -1,0 +1,17 @@
+==============================================================================
+CATALOGO - multa simulada con 4 dias de retraso
+==============================================================================
+[Libro fisico] Clean Code - Robert C. Martin (2008) | 464 pags | 3 ejemplar(es)
+    Prestamo:  7 dias | Multa: S/  6.00
+[Libro digital] Design Patterns - Gamma et al. (1994) | PDF | 12.5 MB
+    Prestamo: 14 dias | Multa: S/  0.00
+[Revista] Revista de Ingenieria de Sistemas - UNAP (2025) | Vol. 12 No. 2
+    Prestamo:  3 dias | Multa: S/  8.00
+------------------------------------------------------------------------------
+TOTAL MULTAS SIMULADAS: S/ 14.00
+
+Verificacion LSP: OK - las 3 subclases sustituyen a RecursoBibliografico
+
+VALIDACION
+------------------------------------------------------------------------------
+[OK] Codigo duplicado: RV-001

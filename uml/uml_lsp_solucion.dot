@@ -1,0 +1,25 @@
+digraph G {
+  graph [rankdir=BT, bgcolor="white", nodesep=0.55, ranksep=0.75, pad=0.3, fontname="Helvetica"];
+  node  [shape=plain, fontname="Helvetica", fontsize=11];
+  edge  [fontname="Helvetica", fontsize=10, color="#1F3864", penwidth=1.4];
+  FiguraGeometrica [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#FCE4D6"><B><FONT POINT-SIZE="9">&laquo;abstract&raquo;</FONT><BR/><I>FiguraGeometrica</I></B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT"> </TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ area(): float {abstract}<BR ALIGN="LEFT"/>+ perimetro(): float {abstract}<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  RectanguloInmutable [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#E2EFDA"><B>RectanguloInmutable</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ ancho: float<BR ALIGN="LEFT"/>+ alto: float<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ area(): float<BR ALIGN="LEFT"/>+ perimetro(): float<BR ALIGN="LEFT"/>+ con_ancho(v): RectanguloInmutable<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  CuadradoInmutable [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#1F3864">
+      <TR><TD BGCOLOR="#E2EFDA"><B>CuadradoInmutable</B></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ lado: float<BR ALIGN="LEFT"/></TD></TR>
+      <HR/><TR><TD ALIGN="LEFT">+ area(): float<BR ALIGN="LEFT"/>+ perimetro(): float<BR ALIGN="LEFT"/></TD></TR>
+    </TABLE>>];
+  RectanguloInmutable -> FiguraGeometrica [arrowhead=onormal, arrowsize=1.2];
+  CuadradoInmutable -> FiguraGeometrica [arrowhead=onormal, arrowsize=1.2];
+}

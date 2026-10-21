@@ -1,0 +1,23 @@
+================================================================
+PARTE A — Contrato LSP sobre PersonalUniversitario
+================================================================
+[OK ] Docente        Mamani Quispe, Juan Carlos
+[OK ] Docente        Quispe Torres, María Elena
+[OK ] Administrativo Huanca Lazo, Pedro
+[OK ] Investigador   Flores Ramos, Ana Lucía
+→ Todas las subclases superan el contrato: LSP respetado.
+
+================================================================
+PARTE B — Cuadrado hereda de Rectangulo (violación del LSP)
+================================================================
+[OK ] test_rectangulo(Rectangulo)  → área = 20.0
+[FALLA] test_rectangulo(Cuadrado) → LSP violado: area=25, esperado=20.0
+LSP VIOLADO en Cuadrado.
+Solución: no heredar Cuadrado de Rectangulo; usar composición o interfaz independiente.
+
+================================================================
+PARTE C — Rediseño sin herencia Cuadrado→Rectangulo (cumple LSP)
+================================================================
+[OK ] RectanguloInmutable  área= 20.0  perímetro= 18.0
+[OK ] CuadradoInmutable    área=  9.0  perímetro= 12.0
+→ Cualquier FiguraGeometrica es sustituible por otra: LSP respetado.
